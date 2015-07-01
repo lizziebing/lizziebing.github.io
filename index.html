@@ -5,6 +5,103 @@
 <title>simple</title>
 <link href="css/resume.css" rel="stylesheet" media="screen">
 <style type="text/css">
+.left{
+	float:letf;
+	width:50%;
+}
+.logo{
+	with:200px;
+	height:266px;
+	margin-top:35%;
+	
+	background: url(img/longmao1.png) no-repeat;
+	animation:logomove 5s infinite 2s;
+	/* Firefox: */
+    -moz-animation: logomove 5s infinite 2s;
+    /* Safari 和 Chrome: */
+    -webkit-animation: logomove 5s infinite 2s;
+    /* Opera: */
+    -o-animation: logomove 5s infinite 2s;
+}
+.stars{
+	with:210px;
+	height:201px;
+	background: url(img/stars.png) no-repeat;
+	animation-name:logomove;/*动画名称*/
+    animation-duration:10s;/*规定动画完成一个周期所花费的秒或毫秒。默认是 0。*/
+    animation-timing-function:linear;/*规定动画的速度曲线。默认是 "ease"。*/
+    animation-delay:2s;/*规定动画何时开始。默认是 0。*/
+    animation-iteration-count:infinite;/*规定动画被播放的次数。默认是 1。*/
+    animation-direction:alternate;/*规定动画是否在下一周期逆向地播放。默认是 "normal"。*/
+    animation-play-state:running;/*规定动画是否正在运行或暂停。默认是 "running"。*/
+
+/* Firefox: */
+-moz-animation: starmove 5s linear 2s infinite alternate;
+/* Safari 和 Chrome: */
+-webkit-animation: starmove 5s linear 2s infinite alternate;
+/* Opera: */
+-o-animation: starmove 5s linear 2s infinite alternate;
+}
+
+@-webkit-keyframes logomove {
+        0% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+       50% {
+             -webkit-transform: rotate(45deg);/* Webkit内核浏览器 */
+               -moz-transform: rotate(45deg);/* Firefox浏览器 */
+                -ms-transform: rotate(45deg);/*IE9*/
+                 -o-transform: rotate(45deg);/* Opera浏览器 */
+                    transform: rotate(45deg);/*W3C标准 */
+          }
+100% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+
+    }
+@keyframes starmove
+{
+-webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
+               -moz-transform: translate(700px,0);/* Firefox浏览器 */
+                -ms-transform: translate(700px,0);/*IE9*/
+                 -o-transform: translate(700px,0);/* Opera浏览器 */
+                    transform: translate(700px,0);/*W3C标准 */
+}
+
+@-moz-keyframes starmove /* Firefox */
+{
+-webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
+               -moz-transform: translate(700px,0);/* Firefox浏览器 */
+                -ms-transform: translate(700px,0);/*IE9*/
+                 -o-transform: translate(700px,0);/* Opera浏览器 */
+                    transform: translate(700px,0);/*W3C标准 */
+}
+
+@-webkit-keyframes starmove /* Safari and Chrome */
+{
+0%   { left:0px; top:0px;}
+25%  { left:200px; top:0px;}
+50%  { left:200px; top:200px;}
+75%  {left:0px; top:200px;}
+100% {0px; top:0px;}
+}
+
+@-o-keyframes starmove /* Opera */
+{
+-webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
+               -moz-transform: translate(700px,0);/* Firefox浏览器 */
+                -ms-transform: translate(700px,0);/*IE9*/
+                 -o-transform: translate(700px,0);/* Opera浏览器 */
+                    transform: translate(700px,0);/*W3C标准 */
+}
+
+
 
 .xingbiao{
 display:block;
@@ -23,15 +120,92 @@ background: url(img/star_selected.png) no-repeat;
 cursor: pointer;
 float:left;
 }
-
+.clear{
+	clear:both;
+}
 </style>
 <script src="js/jquery-1.8.3.js" ></script>
 <script src="js/rili.js" ></script>
 <script src="js/res.js" ></script>
+<script type="text/javascript">
+//快排1
+var quickSort=function(arr){
+	if(arr.length<==1)
+		{return arr;}
+	var pivot = Math.floor(arr.length/2);//求一个最接近浮点数的整数，小于或等于该浮点数
+	var left=[];
+	var right=[];
+	//遍历数组 小于"基准"的元素放入左边的子集，大于基准的元素放入右边的子集
+	for(var i = 0;i<arr.length;i++){
+		if(arr[i]<pivot)
+			{
+			left.push(arr[i]);
+			}
+		else
+			{
+			right.push(arr[i]);
+			}
+	}
+	
+	return quickSort(left).concat([pivot],quickSort(right));//concat() 方法用于连接两个或多个数组。
+	//该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本
+}
+//快排2
+var items =[72,6,57,88,60,42,83,73,48,85];
+var items1 =[4,2,6,5,3,9];
+//交换
+function swap(items,firstIndex,secondIndex)
+{
+	var temp = items[firstIndex];
+	items[firstIndex] = intems[secondIndex];
+	intems[secondIndex] = temp;
+}
+function partition(items,left,right)
+{
+	var pivot = items[Math.floor((right+left)/2)];
+	i =left;
+	j =right;
+	while(i<=j)
+		{
+		while (items[i] < pivot)
+			{
+			i++;
+			}
+		while(items[j]>pivot)
+			{
+			j--;
+			}
+		if(i<=j)
+			{
+			swap(items,i,j);
+			i++;
+			j--;
+			}
+		}
+	return i;
+}
+function quicksort()
+{
+	alert(1);
+	partition(items1,0,items1.length-1);
+	alert(items1.join(","));
+}
+</script>
 </head>
 <body>
 <!-- 为了方便后续开发，工整的代码格式很重要 -->
 <div id='content' align="center" >
+<div id='quicksort'>
+<input type="button" id="button1" onclick="quicksort()" value="排序" />
+<button onclick="alert(1);">快排</button>
+</div>
+<div>
+<div class="left"><div id='logo' align="center" class="logo"></div></div>
+<div class="left"><div id='stars' class="stars"></div></div>
+<div class="clear"></div>
+
+</div>
+
    <table>
       <tr align="center" >
          <td valign='top'>
@@ -40,8 +214,6 @@ float:left;
                <h3>change</h3>
             </div>
             
-            
-  
            </td>
            <td valign="top" style="padding-left:50px">
               <div>
