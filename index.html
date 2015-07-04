@@ -6,8 +6,10 @@
 <link href="css/resume.css" rel="stylesheet" media="screen">
 <style type="text/css">
 .left{
-	float:letf;
 	width:50%;
+}
+.left_stars{
+	-webkit-perspective: 200;/*透明度*/
 }
 .logo{
 	with:200px;
@@ -67,40 +69,39 @@
     }
 @keyframes starmove
 {
--webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
-               -moz-transform: translate(700px,0);/* Firefox浏览器 */
-                -ms-transform: translate(700px,0);/*IE9*/
-                 -o-transform: translate(700px,0);/* Opera浏览器 */
-                    transform: translate(700px,0);/*W3C标准 */
+0%   {left:0px; top:0px;}
+25%  {left:500px; top:0px;}
+50%  {left:500px; top:200px;}
+75%  {left:0px; top:200px;}
+100% {left:0px; top:0px;}
 }
 
 @-moz-keyframes starmove /* Firefox */
 {
--webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
-               -moz-transform: translate(700px,0);/* Firefox浏览器 */
-                -ms-transform: translate(700px,0);/*IE9*/
-                 -o-transform: translate(700px,0);/* Opera浏览器 */
-                    transform: translate(700px,0);/*W3C标准 */
+0%   {left:0px; top:0px;}
+25%  {left:200px; top:0px;}
+50%  {left:200px; top:200px;}
+75%  {left:0px; top:200px;}
+100% {left:0px; top:0px;}
 }
 
-@-webkit-keyframes starmove /* Safari and Chrome */
+@-webkit-keyframes starmove /* Safari 和 Chrome */
 {
-0%   { left:0px; top:0px;}
-25%  { left:200px; top:0px;}
-50%  { left:200px; top:200px;}
+0%   {left:0px; top:0px;}
+25%  {left:200px; top:0px;}
+50%  {left:200px; top:200px;}
 75%  {left:0px; top:200px;}
-100% {0px; top:0px;}
+100% {left:0px; top:0px;}
 }
 
 @-o-keyframes starmove /* Opera */
 {
--webkit-transform: translate(700px,0);/* Webkit内核浏览器 */
-               -moz-transform: translate(700px,0);/* Firefox浏览器 */
-                -ms-transform: translate(700px,0);/*IE9*/
-                 -o-transform: translate(700px,0);/* Opera浏览器 */
-                    transform: translate(700px,0);/*W3C标准 */
+0%   {left:0px; top:0px;}
+25%  {left:200px; top:0px;}
+50%  {left:200px; top:200px;}
+75%  {left:0px; top:200px;}
+100% {left:0px; top:0px;}
 }
-
 
 
 .xingbiao{
@@ -123,6 +124,16 @@ float:left;
 .clear{
 	clear:both;
 }
+.pic{
+	-webkit-perspective: 200;
+}
+.memo_pic{
+	-webkit-transform-style: preserve-3d; 
+	-webkit-transition: 1s;
+}
+.pic:hover .memo_pic { 
+-webkit-transform: rotateY(180deg); 
+} 
 </style>
 <script src="js/jquery-1.8.3.js" ></script>
 <script src="js/rili.js" ></script>
@@ -200,8 +211,9 @@ function quicksort()
 <button onclick="alert(1);">快排</button>
 </div>
 <div>
-<div class="left"><div id='logo' align="center" class="logo"></div></div>
-<div class="left"><div id='stars' class="stars"></div></div>
+<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
+<div class="left" align="right"><div id='logo' align="center" class="logo"></div></div>
+
 <div class="clear"></div>
 
 </div>
@@ -219,8 +231,10 @@ function quicksort()
               <div>
                 <br>
                 <br>
-                <div>
+                <div id="pic" class="">
+                   <div id="memo_pic" class="">
                    <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
+                   </div>
                 </div>
                 <div id='comment' class='commentstar'  >
                    <div id='comment_star' >
