@@ -6,16 +6,16 @@
 <link href="css/resume.css" rel="stylesheet" media="screen">
 <style type="text/css">
 .left{
-	width:50%;
+	
 }
 .left_stars{
+	width:100%;
+    height:200px;
 	-webkit-perspective: 200;/*透明度*/
 }
 .logo{
-	with:200px;
+	width:200px;
 	height:266px;
-	margin-top:35%;
-	
 	background: url(img/longmao1.png) no-repeat;
 	animation:logomove 5s infinite 2s;
 	/* Firefox: */
@@ -26,24 +26,19 @@
     -o-animation: logomove 5s infinite 2s;
 }
 .stars{
-	with:210px;
-	height:201px;
-	background: url(img/stars.png) no-repeat;
-	animation-name:logomove;/*动画名称*/
-    animation-duration:10s;/*规定动画完成一个周期所花费的秒或毫秒。默认是 0。*/
-    animation-timing-function:linear;/*规定动画的速度曲线。默认是 "ease"。*/
-    animation-delay:2s;/*规定动画何时开始。默认是 0。*/
-    animation-iteration-count:infinite;/*规定动画被播放的次数。默认是 1。*/
-    animation-direction:alternate;/*规定动画是否在下一周期逆向地播放。默认是 "normal"。*/
-    animation-play-state:running;/*规定动画是否正在运行或暂停。默认是 "running"。*/
-
+width:100px;
+height:100px;	
+background:url(img/stars.png) no-repeat;
+position:relative;
+animation:starmove 5s linear 2s infinite alternate;
 /* Firefox: */
--moz-animation: starmove 5s linear 2s infinite alternate;
-/* Safari 和 Chrome: */
--webkit-animation: starmove 5s linear 2s infinite alternate;
+-moz-animation:starmove 5s linear 2s infinite alternate;
+/* Safari and Chrome: */
+-webkit-animation:starmove 5s linear 2s infinite alternate;
 /* Opera: */
--o-animation: starmove 5s linear 2s infinite alternate;
+-o-animation:starmove 5s linear 2s infinite alternate;
 }
+
 
 @-webkit-keyframes logomove {
         0% {
@@ -69,37 +64,37 @@
     }
 @keyframes starmove
 {
-0%   {left:0px; top:0px;}
-25%  {left:500px; top:0px;}
-50%  {left:500px; top:200px;}
-75%  {left:0px; top:200px;}
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
 100% {left:0px; top:0px;}
 }
 
 @-moz-keyframes starmove /* Firefox */
 {
-0%   {left:0px; top:0px;}
-25%  {left:200px; top:0px;}
-50%  {left:200px; top:200px;}
-75%  {left:0px; top:200px;}
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
 100% {left:0px; top:0px;}
 }
 
 @-webkit-keyframes starmove /* Safari 和 Chrome */
 {
-0%   {left:0px; top:0px;}
-25%  {left:200px; top:0px;}
-50%  {left:200px; top:200px;}
-75%  {left:0px; top:200px;}
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
 100% {left:0px; top:0px;}
 }
 
 @-o-keyframes starmove /* Opera */
 {
-0%   {left:0px; top:0px;}
-25%  {left:200px; top:0px;}
-50%  {left:200px; top:200px;}
-75%  {left:0px; top:200px;}
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
 100% {left:0px; top:0px;}
 }
 
@@ -204,15 +199,12 @@ function quicksort()
 </script>
 </head>
 <body>
+<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
 <!-- 为了方便后续开发，工整的代码格式很重要 -->
 <div id='content' align="center" >
-<div id='quicksort'>
-<input type="button" id="button1" onclick="quicksort()" value="排序" />
-<button onclick="alert(1);">快排</button>
-</div>
 <div>
-<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
-<div class="left" align="right"><div id='logo' align="center" class="logo"></div></div>
+
+<div align="right"><div id='logo' align="center" class="logo"></div></div>
 
 <div class="clear"></div>
 
@@ -231,8 +223,8 @@ function quicksort()
               <div>
                 <br>
                 <br>
-                <div id="pic" class="">
-                   <div id="memo_pic" class="">
+                <div id="pic" class="pic">
+                   <div id="memo_pic" class="memo_pic">
                    <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
                    </div>
                 </div>
@@ -247,6 +239,10 @@ function quicksort()
                       <span id="xingbiao5" class="xingbiao" onclick="turn('5');" title=1></span>
                   </div>
                 </div>
+                <div id='quicksort'>
+<input type="button" id="button1" onclick="quicksort()" value="排序" />
+<button onclick="alert(1);">快排</button>
+</div>
               </div>
                <br>
   
