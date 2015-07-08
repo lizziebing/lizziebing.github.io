@@ -130,6 +130,62 @@ float:left;
 -webkit-transform: rotateY(180deg); 
 } 
 </style>
+
+</head>
+<body>
+<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
+<!-- 为了方便后续开发，工整的代码格式很重要 -->
+<div id='content' align="center" >
+<div>
+
+<div align="right"><div id='logo' align="center" class="logo"></div></div>
+
+<div class="clear"></div>
+
+</div>
+
+   <table>
+      <tr align="center" >
+         <td valign='top'>
+            <div align="center">
+              
+               <h3>change</h3>
+            </div>
+            
+           </td>
+           <td valign="top" style="padding-left:50px">
+              <div>
+                <br>
+                <br>
+                <div id="pic" class="pic">
+                   <div id="memo_pic" class="memo_pic">
+                   <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
+                   </div>
+                </div>
+                <div id='comment' class='commentstar'  >
+                   <div id='comment_star' >
+                      <span class="xingbiao_text">评分：</span>
+                         <!-- title记录点击状态 -->
+                      <span id="xingbiao1" class="xingbiao" onclick="turn('1');" title=1></span>
+                      <span id="xingbiao2" class="xingbiao" onclick="turn('2');" title=1></span>
+                      <span id="xingbiao3" class="xingbiao" onclick="turn('3');" title=1></span>
+                      <span id="xingbiao4" class="xingbiao" onclick="turn('4');" title=1></span>  
+                      <span id="xingbiao5" class="xingbiao" onclick="turn('5');" title=1></span>
+                  </div>
+                </div>
+                <div id='quicksort'>
+
+</div>
+              </div>
+               <br>
+  
+             <div id='rightTime' style='width:280px;margin-top:50px;'>
+            </div>
+         </td>
+       </tr>
+     </table>   
+   </div>
+</body>
 <script src="js/jquery-1.8.3.js" ></script>
 <script src="js/rili.js" ></script>
 <script src="js/res.js" ></script>
@@ -298,59 +354,4 @@ function ReplaceFirstUper(str)
     });    
 }  
 </script>
-</head>
-<body>
-<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
-<!-- 为了方便后续开发，工整的代码格式很重要 -->
-<div id='content' align="center" >
-<div>
-
-<div align="right"><div id='logo' align="center" class="logo"></div></div>
-
-<div class="clear"></div>
-
-</div>
-
-   <table>
-      <tr align="center" >
-         <td valign='top'>
-            <div align="center">
-              
-               <h3>change</h3>
-            </div>
-            
-           </td>
-           <td valign="top" style="padding-left:50px">
-              <div>
-                <br>
-                <br>
-                <div id="pic" class="pic">
-                   <div id="memo_pic" class="memo_pic">
-                   <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
-                   </div>
-                </div>
-                <div id='comment' class='commentstar'  >
-                   <div id='comment_star' >
-                      <span class="xingbiao_text">评分：</span>
-                         <!-- title记录点击状态 -->
-                      <span id="xingbiao1" class="xingbiao" onclick="turn('1');" title=1></span>
-                      <span id="xingbiao2" class="xingbiao" onclick="turn('2');" title=1></span>
-                      <span id="xingbiao3" class="xingbiao" onclick="turn('3');" title=1></span>
-                      <span id="xingbiao4" class="xingbiao" onclick="turn('4');" title=1></span>  
-                      <span id="xingbiao5" class="xingbiao" onclick="turn('5');" title=1></span>
-                  </div>
-                </div>
-                <div id='quicksort'>
-
-</div>
-              </div>
-               <br>
-  
-             <div id='rightTime' style='width:280px;margin-top:50px;'>
-            </div>
-         </td>
-       </tr>
-     </table>   
-   </div>
-</body>
 </html>
