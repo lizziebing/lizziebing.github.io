@@ -190,68 +190,7 @@ float:left;
 <script src="js/rili.js" ></script>
 <script src="js/res.js" ></script>
 <script type="text/javascript">
-//快排1
-/*var quickSort=function(arr){
-	if(arr.length<==1)
-		{return arr;}
-	var pivot = Math.floor(arr.length/2);//求一个最接近浮点数的整数，小于或等于该浮点数
-	var left=[];
-	var right=[];
-	//遍历数组 小于"基准"的元素放入左边的子集，大于基准的元素放入右边的子集
-	for(var i = 0;i<arr.length;i++){
-		if(arr[i]<pivot)
-			{
-			left.push(arr[i]);
-			}
-		else
-			{
-			right.push(arr[i]);
-			}
-	}
-	
-	return quickSort(left).concat([pivot],quickSort(right));//concat() 方法用于连接两个或多个数组。
-	//该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本
-}
-//快排2
-var items =[72,6,57,88,60,42,83,73,48,85];
-var items1 =[4,2,6,5,3,9];
-//交换
-function swap(items,firstIndex,secondIndex)
-{
-	var temp = items[firstIndex];
-	items[firstIndex] = intems[secondIndex];
-	intems[secondIndex] = temp;
-}
-function partition(items,left,right)
-{
-	var pivot = items[Math.floor((right+left)/2)];
-	i =left;
-	j =right;
-	while(i<=j)
-		{
-		while (items[i] < pivot)
-			{
-			i++;
-			}
-		while(items[j]>pivot)
-			{
-			j--;
-			}
-		if(i<=j)
-			{
-			swap(items,i,j);
-			i++;
-			j--;
-			}
-		}
-	return i;
-}
-function quicksort()
-{
-	alert(1);
-	partition(items1,0,items1.length-1);
-	alert(items1.join(","));
-}*/
+
 var Arr={3,7,8,10,13,14,26};
 //快速排序
 function quickSort(array){
