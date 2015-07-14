@@ -6,12 +6,15 @@
 <link href="css/resume.css" rel="stylesheet" media="screen">
 <style type="text/css">
 .left{
+	float:left;
+}
+.right{
 	
 }
 .left_stars{
 	width:100%;
     height:200px;
-	-webkit-perspective: 200;/*透明度*/
+	-webkit-perspective: 200;/*开启3D场景 透明度值越小3D效果越明显 */
 }
 .logo{
 	width:200px;
@@ -120,36 +123,55 @@ float:left;
 	clear:both;
 }
 .pic{
-	-webkit-perspective: 200;
+
+    position: relative; 
+	-webkit-perspective: 200;/*开启3D场景 透明度值越小3D效果越明显 */
 }
 .memo_pic{
-	-webkit-transform-style: preserve-3d; 
+	-webkit-transform-style: preserve-3d; /*延续父元素透明度 设置3D场景 */
 	-webkit-transition: 1s;
 }
 .pic:hover .memo_pic { 
--webkit-transform: rotateY(180deg); 
+-webkit-transform: rotateY(180deg); /*设置翻 转效果*/
 } 
+.face { 
+position: absolute; /*必须使用绝对定位，这样海报才能盖在.back这个div的上面*/
+-webkit-backface-visibility: hidden; 
+} 
+.back { 
+
+-webkit-transform: rotateY(180deg); 
+background: #3b3b3b; 
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
+padding: 15%; 
+} 
+.box{
+	width:300px;
+	height:200px;
+	border:2px solid;
+    border-radius:25px;/*圆角*/
+    -moz-border-radius:25px; /* Old Firefox */
+	box-shadow: 10px 10px 5px #888888;
+}
+
 </style>
 <script scr="js/rili.js"></script>
 </head>
 <body>
 <div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
 <!-- 为了方便后续开发，工整的代码格式很重要 -->
-<div id='content' align="center" >
-<div>
+<div id='mainleft' class="left">
 
-<div align="right"><div id='logo' align="center" class="logo"></div></div>
-
-<div class="clear"></div>
+<div align="left"><div id='logo' align="center" class="logo"></div></div>
 
 </div>
-
+<div id='content' align="center" class="left">
    <table>
       <tr align="center" >
          <td valign='top'>
             <div align="center">
               
-               <h3>change</h3>
+               <h3></h3>
             </div>
             
            </td>
@@ -161,6 +183,7 @@ float:left;
                    <div id="memo_pic" class="memo_pic">
                    <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
                    </div>
+                   <div class="face back"><h5>HOT!</h5></div>
                 </div>
                 <div id='comment' class='commentstar'  >
                    <div id='comment_star' >
@@ -182,9 +205,16 @@ float:left;
              <div id='rightTime' style='width:280px;margin-top:50px;'>
             </div>
          </td>
+         <td>
+         <div id='box' class="box">
+         
+         
+         </div>
+         </td>
        </tr>
      </table>   
    </div>
+   <div class="clear"></div>
 </body>
 <script src="js/jquery-1.8.3.js" ></script>
 <script src="js/res.js" ></script>
