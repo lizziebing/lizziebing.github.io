@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>queation</title>
+
+<style type="text/css">
+#demo{
+	width: 100px;
+	height: 100px;
+	background-color:#fff;
+	position: relative;
+border-width:2px;
+border-style:solid;
+border-color:#000;
+}
+/*利用border和伪元素设计出三角形*/
+#demo::after,#demo::before{
+border-style:solid;
+border-color:transparent;
+	content: '';
+	height: 0;
+	width: 0;
+	left: 100%;
+	position: absolute;
+}
+#demo::after{
+	border-width: 10px;
+	border-left-color: #fff;
+	top: 20px;
+
+}
+#demo::before{
+	border-width: 12px;
+	border-left-color: #000;
+	top: 18px;
+}
+
+
+#div_wrapper{
+width: 500px;
+height: 235px;
+position: absolute;
+left: 50%;
+top:50%;
+margin-left: -250px;
+margin-top: -200px;
+border: 1px solid silver;
+}
+#div_content table tr td{
+width: 120px;
+border:1px solid silver;
+text-align: center;
+height: 40px;
+line-height: 40px;
+}
+#div_content table thead td{
+background-color:silver;
+}
+#div_content table thead td:hover{
+cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+	<!--CSS border实现三角形 start -->
+	<div id="demo"></div>
+    <!--CSS border实现三角形 end-->
+    <!-- 表格排序start-->
+	<div id="div_wrapper">
+<div id="div_content">
+<table>
+<thead>
+<tr>
+<td id="name">姓名</td>
+<td id="power">力量</td>
+<td id="quick">敏捷</td>
+<td id="smart">智力</td>
+</tr>
+</thead>
+<tbody>
+<tr id="div0">
+<td>德鲁伊</td>
+<td>17</td>
+<td>24</td>
+<td>13</td>
+</tr>
+<tr id="div1">
+<td>月之骑士</td>
+<td>15</td>
+<td>22</td>
+<td>16</td>
+</tr>
+<tr id="div2">
+<td>众神之王</td>
+<td>19</td>
+<td>15</td>
+<td>20</td>
+</tr>
+<tr id="div3">
+<td>流浪剑客</td>
+<td>23</td>
+<td>15</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+ <!-- 表格排序end-->
+
+ <!--小功能练习start-->
+ <!--点击 lable同时会触发其target指定对象的点击事件-->
+ <div id="labletry">
+ <label for="male">男</label>
+ <input type="radio" name="sex" id="male" value="male"/>
+ <label for="female">女</label>
+ <input type="radio" name="sex" id="female" value="female"/>
+ </div>
+ <!--小功能练习end-->
+</body>
+<script type="text/javascript">
+function sex()
+{	
+ 	var obj=document.getElementsByName("sex");
+ 	for (var i = obj.length - 1; i >= 0; i--) {
+ 		if(obj[i].checked)
+ 		{
+ 			alert(obj[i].value);
+ 		}
+ 	}
+}
+
+//网页加载完成后执行
+window.onload=function(){
+	var ldiv=document.getElementById("labletry");
+	// ldiv.onclick=sex;//DOM0级事件添加
+   ldiv.addEventListener("click",sex,false);//DOM2级冒泡阶段处理事件
+}
+
+</script>
+</html>

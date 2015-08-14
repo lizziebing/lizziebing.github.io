@@ -18,3 +18,6 @@ function turn(index){
 		obj.attr('title',0);
 	}	
 }
+
+//跨浏览器事件对象
+

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>simple</title>
+<link href="css/resume.css" rel="stylesheet" media="screen">
+<style type="text/css">
+.left{
+	float:left;
+}
+.right{
+	
+}
+.left_stars{
+	width:100%;
+    height:200px;
+	-webkit-perspective: 200;/*开启3D场景 透明度值越小3D效果越明显 */
+}
+.logo{
+	width:200px;
+	height:266px;
+	background: url(img/longmao1.png) no-repeat;
+	animation:logomove 5s infinite 2s;
+	/* Firefox: */
+    -moz-animation: logomove 5s infinite 2s;
+    /* Safari 和 Chrome: */
+    -webkit-animation: logomove 5s infinite 2s;
+    /* Opera: */
+    -o-animation: logomove 5s infinite 2s;
+}
+.stars{
+width:100px;
+height:100px;	
+background:url(img/stars.png) no-repeat;
+position:relative;
+animation:starmove 5s linear 2s infinite alternate;
+/* Firefox: */
+-moz-animation:starmove 5s linear 2s infinite alternate;
+/* Safari and Chrome: */
+-webkit-animation:starmove 5s linear 2s infinite alternate;
+/* Opera: */
+-o-animation:starmove 5s linear 2s infinite alternate;
+}
+
+
+@-webkit-keyframes logomove {
+        0% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+       50% {
+             -webkit-transform: rotate(45deg);/* Webkit内核浏览器 */
+               -moz-transform: rotate(45deg);/* Firefox浏览器 */
+                -ms-transform: rotate(45deg);/*IE9*/
+                 -o-transform: rotate(45deg);/* Opera浏览器 */
+                    transform: rotate(45deg);/*W3C标准 */
+          }
+100% {
+            -webkit-transform: rotate(0);
+               -moz-transform: rotate(0);
+                -ms-transform: rotate(0);
+                 -o-transform: rotate(0);
+                    transform: rotate(0); }
+
+    }
+@keyframes starmove
+{
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
+100% {left:0px; top:0px;}
+}
+
+@-moz-keyframes starmove /* Firefox */
+{
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
+100% {left:0px; top:0px;}
+}
+
+@-webkit-keyframes starmove /* Safari 和 Chrome */
+{
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
+100% {left:0px; top:0px;}
+}
+
+@-o-keyframes starmove /* Opera */
+{
+0%   { left:0px; top:0px;}
+25%  {left:50%; top:0px;}
+50%  {left:100%; top:0px;}
+75%  {left:50%; top:0px;}
+100% {left:0px; top:0px;}
+}
+
+
+.xingbiao{
+display:block;
+width: 16px;
+height: 16px;
+background: url(img/star_unselected.png) no-repeat;
+cursor: pointer;
+float:left;
+}
+
+.xingbiao_b{
+display:block;
+width: 16px;
+height: 16px;
+background: url(img/star_selected.png) no-repeat;
+cursor: pointer;
+float:left;
+}
+.clear{
+	clear:both;
+}
+.pic{
+
+    position: relative; 
+	-webkit-perspective: 200;/*开启3D场景 透明度值越小3D效果越明显 */
+}
+.memo_pic{
+	-webkit-transform-style: preserve-3d; /*延续父元素透明度 设置3D场景 */
+	-webkit-transition: 1s;
+}
+.pic:hover .memo_pic { 
+-webkit-transform: rotateY(180deg); /*设置翻 转效果*/
+} 
+.face { 
+position: absolute; /*必须使用绝对定位，这样海报才能盖在.back这个div的上面*/
+-webkit-backface-visibility: hidden; 
+} 
+.back { 
+
+-webkit-transform: rotateY(180deg); 
+background: #3b3b3b; 
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
+padding: 15%; 
+} 
+.box{
+	width:300px;
+	height:200px;
+	border:2px solid;
+    border-radius:25px;/*圆角*/
+    -moz-border-radius:25px; /* Old Firefox */
+	box-shadow: 10px 10px 5px #888888;
+}
+
+</style>
+<script scr="js/rili.js"></script>
+</head>
+<body>
+<div class="left_stars" align="left"><div id='stars' class="stars"></div></div>
+<!-- 为了方便后续开发，工整的代码格式很重要 -->
+<div id='mainleft' class="left">
+
+<div align="left"><div id='logo' align="center" class="logo"></div></div>
+
+</div>
+<div id='content' align="center" class="left">
+   <table>
+      <tr align="center" >
+         <td valign='top'>
+            <div align="center">
+              
+               <h3></h3>
+            </div>
+            
+           </td>
+           <td valign="top" style="padding-left:50px">
+              <div>
+                <br>
+                <br>
+                <div id="pic" class="pic">
+                   <div id="memo_pic" class="memo_pic">
+                   <img  class="img" src="img/zhb.jpg" width="92px" height="123px"/>
+                   </div>
+                   <div class="face back"><h5>HOT!</h5></div>
+                </div>
+                <div id='comment' class='commentstar'  >
+                   <div id='comment_star' >
+                      <span class="xingbiao_text">评分：</span>
+                         <!-- title记录点击状态 -->
+                      <span id="xingbiao1" class="xingbiao" onclick="turn('1');" title=1></span>
+                      <span id="xingbiao2" class="xingbiao" onclick="turn('2');" title=1></span>
+                      <span id="xingbiao3" class="xingbiao" onclick="turn('3');" title=1></span>
+                      <span id="xingbiao4" class="xingbiao" onclick="turn('4');" title=1></span>  
+                      <span id="xingbiao5" class="xingbiao" onclick="turn('5');" title=1></span>
+                  </div>
+                </div>
+                <div id='quicksort'>
+
+</div>
+              </div>
+               <br>
+  
+             <div id='rightTime' style='width:280px;margin-top:50px;'>
+            </div>
+         </td>
+         <td>
+         <div id='box' class="box">
+         
+         
+         </div>
+         </td>
+       </tr>
+     </table>   
+   </div>
+   <div class="clear"></div>
+</body>
+<script src="js/jquery-1.8.3.js" ></script>
+<script src="js/res.js" ></script>
+
+<script type="text/javascript">
+
+
+</script>
+</html>
