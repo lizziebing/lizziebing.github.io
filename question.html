@@ -8,6 +8,7 @@
 #demo{
 	width: 100px;
 	height: 100px;
+	float: left;
 	background-color:#fff;
 	position: relative;
 border-width:2px;
@@ -35,16 +36,28 @@ border-color:transparent;
 	border-left-color: #000;
 	top: 18px;
 }
+/*outside类下包括的所有div*/
+.outside div{
+	display: inline;
+	float: right;
+}
 
-
+.left{
+background-color: red;
+/*CSS hack*/
+.background-color:#00deff\9; /*IE6、7、8识别*/
+      +background-color:#a200ff;/*IE6、7识别*/
+      _background-color:#1e0bd1;/*IE6识别*/ 
+}
+.right{
+background-color: blue;
+}
+.clear{
+	clear: both;
+}
 #div_wrapper{
 width: 500px;
 height: 235px;
-position: absolute;
-left: 50%;
-top:50%;
-margin-left: -250px;
-margin-top: -200px;
 border: 1px solid silver;
 }
 #div_content table tr td{
@@ -60,16 +73,66 @@ background-color:silver;
 #div_content table thead td:hover{
 cursor: pointer;
 }
+
+/*伪元素清楚浮动(除了经典的增加div clear both之外的另外一种比较好的清楚浮动的方法)*/
+/*原理：IE8以上和非IE浏览器才支持:after，原理和方法2有点类似，zoom(IE转有属性)可解决ie6,ie7浮动问题。*/
+ .div1{background:#000080;border:1px solid red;}
+  　
+ 　  .div2{background:#800080;border:1px solid red;height:100px;margin-top:10px}
+ 　  .left{float:left;width:20%;height:200px;background:#DDD}
+ 　  .right{float:right;width:30%;height:80px;background:#DDD}
+　   /*清除浮动代码*/
+ 　  .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+ 　  .clearfloat{
+ 	/*zoom:1*/
+ }
+
+
+ .divposition{
+ 	background-color: pink;
+ 	margin: 0,auto;
+ 	width: 200px;
+
+
+ }
 </style>
 
 </head>
 <body>
+	<div>
+    <div class="divposition"></div>
+    <div></div>
+	</div>
+<div id="part1">
 	<!--CSS border实现三角形 start -->
-	<div id="demo">CSS border实现三角形</div>
+<h3>CSS border实现三角形</h3>
+	<div id="demo"></div>
     <!--CSS border实现三角形 end-->
+<calendar></calendar>
+<!--实现div并排-->
+
+<div class="outside">
+<h3>inline实现div并排</h3>
+<div class="left">左边</div>
+<div class="right">右边</div>
+</div>
+<!---->
+<div class="clear"></div>
+</div>
+
+<!--伪元素清楚浮动(除了经典的增加div clear both之外的另外一种比较好的清楚浮动的方法)-->
+<div class="div1 clearfloat">
+　　<div class="left">Left</div>
+　　<div class="right">Right</div>
+</div>
+　　<div class="div2">
+　　div2
+　　</div>
+<!--伪元素清除浮动end-->
+<h3>表格排序</h3>
     <!-- 表格排序start-->
 	<div id="div_wrapper">
-		表格排序
+	
 <div id="div_content">
 <table>
 <thead>
@@ -114,7 +177,7 @@ cursor: pointer;
  <!--小功能练习start-->
  <!--点击 lable同时会触发其target指定对象的点击事件-->
  <div id="labletry">
- 	冒泡事件
+ <h3>冒泡事件</h3>	
  <label for="male">男</label>
  <input type="radio" name="sex" id="male" value="male"/>
  <label for="female">女</label>
@@ -141,5 +204,68 @@ window.onload=function(){
    ldiv.addEventListener("click",sex,false);//DOM2级冒泡阶段处理事件
 }
 
+
+//注册多级命名空间
+
+function namespace(path)
+ {
+ 	// var arr=path.split(".").reverse();
+ 	// var tem={};
+ 	// for (var i =  0; i <arr.length; i++) {
+	   
+ 	   
+  //           tem=createobj(arr[i],tem);
+ 	// }
+ 	var arr=path.split(".");
+ 	var tem='';
+ 	for (var i = 0; i <arr.length; i++) {
+ 		
+         if (i==0)
+ 		{
+ 			tem+=arr[i];
+ 			eval("this."+tem+"={};");
+ 		}
+ 	    else
+ 	    {
+ 	    	tem+="."+arr[i];
+ 	    	console.log(tem);
+            eval("this."+tem+"={}");
+ 	    }
+
+ 	};
+ }
+function createobj(next,pro){
+// var result={};
+// result[pro]=next;
+// return result;
+}
+namespace('ae.buyer.nav');
+console.log(ae.buyer.nav);
+ae.buyer.nav.searchbar={"name":"space"};
+console.log(ae.buyer.nav.searchbar.name);
+
+//实现类式继承
+//首先创建构造函数，其名称就是类名，首字母应该大写，构造函数中创建实例属性要使用关键字this,类的方法被添加到其prototyoe对象中
+function List(length)
+{
+	this.length=length;
+}
+List.prototype={
+	add:function(id){
+		var ulelement=document.createElement("ul");
+		ulelement.id=id;
+
+         for (var i = length - 1; i >= 0; i--) {
+         	ulelement.appendChild(document.createElement("li"));
+         };
+         return ulelement;
+	}
+}
+var list1=new List(3);//创建类的实例
+// list1.add();
+
+
+//派生子类
+
 </script>
-</html>
+<html>
